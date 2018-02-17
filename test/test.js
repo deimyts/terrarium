@@ -46,15 +46,29 @@ test('The map should have tiles', (t) => {
   t.true(map.tiles instanceof Array);
 });
 
-test.skip('The map should have a number of tiles equal to its area', (t) => {
-  const map1 = createMap(2, 2);
-  t.is(map1.tiles.length, 4);
+test('The map should create the correct number of tiles', (t) => {
+  const dimensions = {
+    x: null,
+    y: null,
+  };
 
-  const map2 = createMap(3, 3);
-  t.is(map2.tiles.length, 9);
+  dimensions.x = 2;
+  dimensions.y = 2;
+  const map1 = createMap(dimensions.x, dimensions.y);
+  t.is(map1.tiles.length, dimensions.x);
+  t.is(map1.tiles[0].length, dimensions.y);
 
-  const map3 = createMap(2, 3);
-  t.is(map3.tiles.length, 6);
+  dimensions.x = 3;
+  dimensions.y = 3;
+  const map2 = createMap(dimensions.x, dimensions.y);
+  t.is(map2.tiles.length, dimensions.x);
+  t.is(map2.tiles[0].length, dimensions.y);
+
+  dimensions.x = 2;
+  dimensions.y = 3;
+  const map3 = createMap(dimensions.x, dimensions.y);
+  t.is(map3.tiles.length, dimensions.x);
+  t.is(map3.tiles[0].length, dimensions.y);
 });
 
 test('The tiles array should be two-dimensional', (t) => {
