@@ -3,6 +3,10 @@ class Map {
     this.width = width;
     this.height = height;
     this.tiles = [];
+
+    for (let i = 0; i < this.width * this.height; i += 1) {
+      this.tiles.push(i);
+    }
   }
 }
 

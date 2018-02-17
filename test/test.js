@@ -37,3 +37,14 @@ test('The map should have tiles', (t) => {
   const map = new Map(2, 2);
   t.true(map.tiles instanceof Array);
 });
+
+test('The map should have a number of tiles equal to it\'s area', (t) => {
+  const map1 = new Map(2, 2);
+  t.is(map1.tiles.length, 4);
+
+  const map2 = new Map(3, 3);
+  t.is(map2.tiles.length, 9);
+
+  const map3 = new Map(2, 3);
+  t.is(map3.tiles.length, 6);
+});
