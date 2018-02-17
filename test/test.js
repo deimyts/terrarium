@@ -1,6 +1,6 @@
 import test from 'ava';
 
-import Game from '../src/main';
+import { Game, Map } from '../src/main';
 
 test('It should create a game object', (t) => {
   const world = new Game();
@@ -17,9 +17,13 @@ test('The world should have a map', (t) => {
   t.not(world.map, undefined);
 });
 
-test('The map should have a width and height', (t) => {
-  const world = new Game();
-  t.not(world.map.width, undefined);
-  t.not(world.map.height, undefined);
+test('The map should have a width', (t) => {
+  const map = new Map();
+  t.not(map.width, undefined);
+});
+
+test('The map should have a height', (t) => {
+  const map = new Map();
+  t.not(map.width, undefined);
 });
 

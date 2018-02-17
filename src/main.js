@@ -1,11 +1,18 @@
-class Game {
+class Map {
   constructor() {
-    this.seed = Date.now();
-    this.map = {
-      width: 100,
-      height: 100,
-    };
+    this.width = 100;
+    this.height = 100;
   }
 }
 
-export default Game;
+class Game {
+  constructor() {
+    this.seed = Date.now();
+    this.map = new Map();
+  }
+}
+
+export {
+  Game,
+  Map,
+};
