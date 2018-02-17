@@ -1,7 +1,7 @@
 class Map {
-  constructor() {
-    this.width = 100;
-    this.height = 100;
+  constructor(width = 100, height = 100) {
+    this.width = width;
+    this.height = height;
   }
 }
 
@@ -16,3 +16,4 @@ export {
   Game,
   Map,
 };
+
