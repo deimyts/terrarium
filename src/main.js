@@ -7,9 +7,13 @@ class Map {
 
   createTiles() {
     const tiles = [];
-    const area = this.width * this.height;
-    for (let i = 0; i < area; i += 1) {
-      tiles.push(i);
+    for (let x = 0; x < this.width; x += 1) {
+      for (let y = 0; y < this.height; y += 1) {
+        if (typeof tiles[x] === 'undefined') {
+          tiles[x] = [];
+        }
+        tiles[x][y] = `(${x}, ${y})`;
+      }
     }
     return tiles;
   }
@@ -26,4 +30,3 @@ export {
   Game,
   Map,
 };
-

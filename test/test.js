@@ -46,7 +46,7 @@ test('The map should have tiles', (t) => {
   t.true(map.tiles instanceof Array);
 });
 
-test('The map should have a number of tiles equal to its area', (t) => {
+test.skip('The map should have a number of tiles equal to its area', (t) => {
   const map1 = createMap(2, 2);
   t.is(map1.tiles.length, 4);
 
@@ -59,5 +59,8 @@ test('The map should have a number of tiles equal to its area', (t) => {
 
 test('The tiles array should be two-dimensional', (t) => {
   const map = createMap(1, 2);
-  t.is(map.tiles, [[0, 0], [0, 1]]);
+  t.deepEqual(map.tiles, [['(0, 0)', '(0, 1)']]);
+
+  const map2 = createMap(2, 2);
+  t.deepEqual(map2.tiles, [['(0, 0)', '(0, 1)'], ['(1, 0)', '(1, 1)']]);
 });
