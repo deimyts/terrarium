@@ -1,6 +1,6 @@
 class Game {
-  constructor(foo) {
-    this.foo = foo;
+  constructor() {
+    this.seed = Date.now();
   }
 }
 

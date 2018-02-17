@@ -6,3 +6,8 @@ test('it should create a game object', (t) => {
   const world = new Game();
   t.not(world, undefined);
 });
+
+test('The game shoud have a seed property', (t) => {
+  const world = new Game();
+  t.not(world.seed, undefined);
+});
