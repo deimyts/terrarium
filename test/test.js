@@ -46,7 +46,7 @@ test('The map should have tiles', (t) => {
   t.true(map.tiles instanceof Array);
 });
 
-test('The map should have a number of tiles equal to it\'s area', (t) => {
+test('The map should have a number of tiles equal to its area', (t) => {
   const map1 = createMap(2, 2);
   t.is(map1.tiles.length, 4);
 
@@ -55,4 +55,9 @@ test('The map should have a number of tiles equal to it\'s area', (t) => {
 
   const map3 = createMap(2, 3);
   t.is(map3.tiles.length, 6);
+});
+
+test('The tiles array should be two-dimensional', (t) => {
+  const map = createMap(1, 2);
+  t.is(map.tiles, [[0, 0], [0, 1]]);
 });
