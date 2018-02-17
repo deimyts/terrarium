@@ -1,7 +1,10 @@
 class Game {
   constructor() {
     this.seed = Date.now();
-    this.map = {};
+    this.map = {
+      width: 100,
+      height: 100,
+    };
   }
 }
 

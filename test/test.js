@@ -16,3 +16,10 @@ test('The world should have a map', (t) => {
   const world = new Game();
   t.not(world.map, undefined);
 });
+
+test('The map should have a width and height', (t) => {
+  const world = new Game();
+  t.not(world.map.width, undefined);
+  t.not(world.map.height, undefined);
+});
+
