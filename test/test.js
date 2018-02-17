@@ -32,3 +32,8 @@ test('You should be able to set the map width and height when you create it', (t
   t.is(map.width, 50);
   t.is(map.height, 50);
 });
+
+test('The map should have tiles', (t) => {
+  const map = new Map(2, 2);
+  t.true(map.tiles instanceof Array);
+});
