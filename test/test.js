@@ -1,11 +1,7 @@
 import test from 'ava';
 
-test('foo', (t) => {
-  t.pass();
-});
+import game from '../main';
 
-test('bar', async (t) => {
-  const bar = Promise.resolve('bar');
-
-  t.is(await bar, 'bar');
+test('the module should exist', (t) => {
+  t.not(game, undefined);
 });
