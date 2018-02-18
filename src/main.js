@@ -20,22 +20,18 @@ class Map {
   }
 
   static fillGridWithValues(grid) {
-    // for each array of Y-values on the X-axis
-    // replace each Y-value in the array with custom text
-    return grid.map( (arrayOfYValues) => {
-      return arrayOfYValues.map((tile, yVal) => {
-        const xVal = grid.indexOf(arrayOfYValues);
-        return `(${xVal}, ${yVal})`;
-      })
-    })
+    return grid.map(column => this.fillColumnWithValues(grid, column));
   }
 
-  static mapCoords(coords) {
-    return coords.map((y, i) => {
-      const xVal = yAxis.indexOf(coords);
-      const yVal = i;
-      return `(${xVal}, ${yVal})`;
+  static fillColumnWithValues(grid, column) {
+    return column.map((gridSquare, yVal) => {
+      const xVal = grid.indexOf(column);
+      return this.formatCoordinates(xVal, yVal);
     });
+  }
+
+  static formatCoordinates(x, y) {
+    return `(${x}, ${y})`;
   }
 }
 
