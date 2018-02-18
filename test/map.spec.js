@@ -3,7 +3,7 @@ import test from 'ava';
 import { Map } from '../src/main';
 
 function createMap(width, height) {
-  return new Map(width, height);
+  return new Map('testSeed', width, height);
 }
 
 test('The map should have a width', (t) => {
@@ -101,6 +101,10 @@ test('Using the same seed should result in the same value', (t) => {
   const seed2 = 'hello';
   const value3 = Map.assignRandomValuetoTile(seed2);
   const value4 = Map.assignRandomValuetoTile(seed2);
-
   t.is(value3, value4);
 });
+
+test('The Map Constructor should not be called without a seed', (t) => {
+  t.throws(Map, Error);
+});
+

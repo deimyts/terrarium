@@ -1,9 +1,12 @@
 const seedrandom = require('seedrandom');
 
 class Map {
-  constructor(width = 100, height = 100) {
+  constructor(seed, width = 100, height = 100) {
+      if (!seed) { throw new Error('param is missing'); }
+    this.seed = seed;
     this.width = width;
     this.height = height;
+
     this.tiles = this.createTiles();
   }
 
@@ -35,7 +38,7 @@ class Map {
   }
 
   static formatCoordinates(x, y) {
-    return { x, y, value: this.assignRandomValuetoTile() };
+    return { x, y, value: this.assignRandomValuetoTile(this.seed) };
   }
 
   static createFilledArray(fillValue, length) {
