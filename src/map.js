@@ -6,8 +6,8 @@ class Map {
     this.width = width;
     this.height = height;
 
-    const emptyTiles = this.createTiles();
-    this.tiles = this.addRandomValues(emptyTiles);
+    this.grid = this.createTiles();
+    this.tiles = this.addRandomValues();
   }
 
   createTiles() {
@@ -15,22 +15,17 @@ class Map {
     return Map.fillGridWithValues(grid);
   }
 
-  addRandomValues(grid) {
-    const value = generateRandom(this.seed);
-    for (var i=0; i<3; i++) {
-      const rando = generateRandom(this.seed);
-      console.log(`seed: ${this.seed}`)
-      console.log(`${i}A: ${rando}`)
-      console.log(`${i}B: ${value}`)
-    }
-    const tiles = grid.map( (column) => {
-      return column.map( (tile) => {
-        tile.value = value;
-        return tile;
-      });
-    });
-    console.log('tiles: ', tiles);
-    return tiles;
+  addRandomValues() {
+    return Map.iterateOverGrid(this.grid, Map.assignValueToTile);
+  }
+
+  static iterateOverGrid(grid, processTiles) {
+    return grid.map(column => column.map(processTiles));
+  }
+
+  static assignValueToTile(tile) {
+    const value = generateRandom(`${tile.x} + ${tile.y}`);
+    return Object.assign({}, { value }, tile);
   }
 
   static createGrid(width, height) {

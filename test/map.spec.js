@@ -1,7 +1,6 @@
 import test from 'ava';
 
 import { Map } from '../src/main';
-import { create } from 'domain';
 import generateRandomValue from '../src/random-number-generator';
 
 function createMap(width, height) {
@@ -101,6 +100,14 @@ test('what does the map look like?', (t) => {
   t.pass();
 });
 
-test.todo('Tile values should be different from one another');
+test('Tile values should be different from one another', (t) => {
+  const map = createMap(2, 2);
+  const tile1 = map.tiles[0][0];
+  const tile2 = map.tiles[0][1];
+
+  t.not(tile1.value, tile2.value);
+});
+
+test.todo('Maps with different seeds should have different tile values');
 test.todo('Tile values should be reproducible');
 test.todo('Tile values should be rounded down to the nearest tenth');
