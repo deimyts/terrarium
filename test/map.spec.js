@@ -2,6 +2,7 @@ import test from 'ava';
 
 import { Map } from '../src/main';
 import { create } from 'domain';
+import generateRandomValue from '../src/random-number-generator';
 
 function createMap(width, height) {
   return new Map('testSeed', width, height);
@@ -93,28 +94,13 @@ test('Each tile should have an associated value', (t) => {
   t.truthy(tile4.value);
 });
 
-test('Using the same seed should result in the same value', (t) => {
-  const seed1 = 1;
-  const value1 = Map.assignRandomValuetoTile(seed1);
-  const value2 = Map.assignRandomValuetoTile(seed1);
-  t.is(value1, value2);
-
-  const seed2 = 'hello';
-  const value3 = Map.assignRandomValuetoTile(seed2);
-  const value4 = Map.assignRandomValuetoTile(seed2);
-  t.is(value3, value4);
-});
-
-test('The Map Constructor should not be called without a seed', (t) => {
-  t.throws(
-    () => new Map(),
-    Error,
-  );
-});
-
 test('what does the map look like?', (t) => {
   const map = createMap(3, 3);
   const stringMap = JSON.stringify(map, '\t', 2);
   console.log('like this: ', stringMap);
   t.pass();
 });
+
+test.todo('Tile values should be different from one another');
+test.todo('Tile values should be reproducible');
+test.todo('Tile values should be rounded down to the nearest tenth');
