@@ -33,7 +33,7 @@ class Map {
   }
 
   static formatCoordinates(x, y) {
-    return `(${x}, ${y})`;
+    return { x, y };
   }
 
   static createFilledArray(fillValue, length) {
