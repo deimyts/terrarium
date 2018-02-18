@@ -18,19 +18,9 @@ class Map {
 
     const grid = new Array(this.width).fill([]);
 
-
-    // const grid2 = grid.forEach((xCoord, xVal, arr) => {
-    //   for (let y = 0; y < this.height; y += 1) {
-    //     xCoord.push(`(${xVal}, ${y})`);
-    //   }
-    //   arr.push(xCoord);
-    //   return arr;
-    // });
-
     const grid3 = grid.map((xCoord, xVal) => {
       xCoord.push(xVal);
-      //   xCoord.push(`(${xVal}, yVal)`);
-      //   }
+
       return xCoord;
     });
 
@@ -40,18 +30,13 @@ class Map {
     if (this.width < 10) {
       console.log('A: ', a);
     }
-    // const b = a.map( (x, i) => new Array(this.height).fill(i));
-    const b = a.map((x, i) => {
-    //   for (let y = 0; y < this.height; y += 1) {
-      // x.push(i);
-      if (this.width < 10) {
-        // console.log('x: ', x);
-        // console.log('i: ', i);
-        // console.log('this: ', this);
-      }
-    //   return new Array(this.height).fill(1).map((y, i) => i);
-      return new Array(this.height).fill(0);
 
+    const b = a.map((x, i) => {
+      if (this.width < 10) {
+
+      }
+
+      return new Array(this.height).fill(0);
     });
 
 
@@ -69,8 +54,8 @@ class Map {
         console.log('y: ', yVal);
       }
       const formattedVal = val.replace(',', ', ');
-    //   const finalVal = `(${formattedVal})`;
-    const finalVal = `(${xVal}, ${yVal})`;
+
+      const finalVal = `(${xVal}, ${yVal})`;
       return finalVal;
     }));
 
@@ -78,7 +63,6 @@ class Map {
       console.log('C: ', c);
     }
     return c;
-    // return tiles;
   }
 }
 
