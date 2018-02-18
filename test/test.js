@@ -78,19 +78,6 @@ test('You should be able to look up the X and Y coordinate of a tile', (t) => {
   t.is(tile.y, 0);
 });
 
-test('Each tile should have an associated value', (t) => {
-  const map = createMap(2,2);
-  const tile1 = map.tiles[0][0];
-  const tile2 = map.tiles[0][1];
-  const tile3 = map.tiles[1][0];
-  const tile4 = map.tiles[1][1];
-
-  t.truthy(tile1.value);
-  t.truthy(tile2.value);
-  t.truthy(tile3.value);
-  t.truthy(tile4.value);
-});
-
 test('The lookup indices should match the tile coordinates', (t) => {
   const map = createMap(2, 2);
   
@@ -109,4 +96,17 @@ test('The lookup indices should match the tile coordinates', (t) => {
   const tile4 = map.tiles[1][1];
   t.is(tile4.x, 1);
   t.is(tile4.y, 1);
+});
+
+test('Each tile should have an associated value', (t) => {
+  const map = createMap(2,2);
+  const tile1 = map.tiles[0][0];
+  const tile2 = map.tiles[0][1];
+  const tile3 = map.tiles[1][0];
+  const tile4 = map.tiles[1][1];
+
+  t.truthy(tile1.value);
+  t.truthy(tile2.value);
+  t.truthy(tile3.value);
+  t.truthy(tile4.value);
 });
