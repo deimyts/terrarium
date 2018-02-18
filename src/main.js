@@ -6,15 +6,25 @@ class Map {
   }
 
   createTiles() {
-    const a = new Array(this.width).fill([]);
-    const b = a.map(() => new Array(this.height).fill(null));
-    const c = b.map(x => x.map((y, i) => {
-      const xVal = b.indexOf(x);
+    const xAxis = Map.createIndependentAxis(this.width);
+    const yAxis = Map.createDependentAxis(this.height, xAxis);
+    return Map.fillGridWithValues(xAxis, yAxis);
+  }
+
+  static createIndependentAxis(length) {
+    return new Array(length).fill([]);
+  }
+
+  static createDependentAxis(length, xAxis) {
+    return xAxis.map(() => new Array(length).fill(null));
+  }
+
+  static fillGridWithValues(xAxis, yAxis) {
+    return yAxis.map(xCoord => xCoord.map((y, i) => {
+      const xVal = yAxis.indexOf(xCoord);
       const yVal = i;
       return `(${xVal}, ${yVal})`;
     }));
-
-    return c;
   }
 }
 
