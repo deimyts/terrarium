@@ -118,7 +118,7 @@ test('Using the same seed should result in the same value', (t) => {
   const value2 = Map.assignRandomValuetoTile(seed1);
   t.is(value1, value2);
 
-  const seed2 = "hello";
+  const seed2 = 'hello';
   const value3 = Map.assignRandomValuetoTile(seed2);
   const value4 = Map.assignRandomValuetoTile(seed2);
 
