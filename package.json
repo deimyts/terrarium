@@ -6,7 +6,7 @@
   "scripts": {
     "lint-fix": "eslint src --fix",
     "lint": "eslint src",
-    "pretest": "npm run lint-fix",
+    "pretest": "",
     "test": "ava",
     "build": "webpack"
   },
@@ -29,6 +29,7 @@
     "eslint": "^4.18.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0",
+    "sinon": "^4.3.0",
     "webpack": "^3.11.0"
   }
 }

@@ -1,4 +1,5 @@
 import test from 'ava';
+import sinon from 'sinon';
 
 import { Game, Map } from '../src/main';
 
@@ -80,7 +81,7 @@ test('You should be able to look up the X and Y coordinate of a tile', (t) => {
 
 test('The lookup indices should match the tile coordinates', (t) => {
   const map = createMap(2, 2);
-  
+
   const tile1 = map.tiles[0][0];
   t.is(tile1.x, 0);
   t.is(tile1.y, 0);
@@ -99,7 +100,7 @@ test('The lookup indices should match the tile coordinates', (t) => {
 });
 
 test('Each tile should have an associated value', (t) => {
-  const map = createMap(2,2);
+  const map = createMap(2, 2);
   const tile1 = map.tiles[0][0];
   const tile2 = map.tiles[0][1];
   const tile3 = map.tiles[1][0];
@@ -109,4 +110,10 @@ test('Each tile should have an associated value', (t) => {
   t.truthy(tile2.value);
   t.truthy(tile3.value);
   t.truthy(tile4.value);
+});
+
+test('The tile values should be randomly assigned', (t) => {
+  sinon.spy(Math, 'random');
+  Map.assignRandomValuetoTile();
+  t.true(Math.random.called);
 });

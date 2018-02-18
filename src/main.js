@@ -39,6 +39,10 @@ class Map {
   static createFilledArray(fillValue, length) {
     return new Array(length).fill(fillValue);
   }
+
+  static assignRandomValuetoTile(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+  }
 }
 
 class Game {
