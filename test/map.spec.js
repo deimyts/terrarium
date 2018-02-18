@@ -1,6 +1,7 @@
 import test from 'ava';
 
 import { Map } from '../src/main';
+import { create } from 'domain';
 
 function createMap(width, height) {
   return new Map('testSeed', width, height);
@@ -109,4 +110,11 @@ test('The Map Constructor should not be called without a seed', (t) => {
     () => new Map(),
     Error,
   );
+});
+
+test('what does the map look like?', (t) => {
+  const map = createMap(3, 3);
+  const stringMap = JSON.stringify(map, '\t', 2);
+  console.log('like this: ', stringMap);
+  t.pass();
 });
