@@ -1,8 +1,11 @@
 const seedrandom = require('seedrandom');
 
+// const err = (msg) => { throw Error( msg ) }
+// const err = 'foo';
+
 class Map {
   constructor(seed, width = 100, height = 100) {
-      if (!seed) { throw new Error('param is missing'); }
+    if (seed === undefined) { throw new Error('Map must have a seed.'); }
     this.seed = seed;
     this.width = width;
     this.height = height;

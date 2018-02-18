@@ -105,6 +105,8 @@ test('Using the same seed should result in the same value', (t) => {
 });
 
 test('The Map Constructor should not be called without a seed', (t) => {
-  t.throws(Map, Error);
+  t.throws(
+    () => new Map(),
+    Error,
+  );
 });
-
