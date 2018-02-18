@@ -71,22 +71,6 @@ test('The map should create the correct number of tiles', (t) => {
   t.is(map3.tiles[0].length, dimensions.y);
 });
 
-test.skip('The tiles array should be two-dimensional', (t) => {
-  const map = createMap(1, 2);
-  t.deepEqual(map.tiles, [[{ x: 0, y: 0 }, { x: 0, y: 1 }]]);
-
-  const map2 = createMap(2, 2);
-  t.deepEqual(map2.tiles, [[{ x: 0, y: 0 }, { x: 0, y: 1 }], [{ x: 1, y: 0 }, { x: 1, y: 1 }]]);
-});
-
-test.skip('You should be able to look up tiles by their coordinates', (t) => {
-  const map = createMap(2, 2);
-  t.deepEqual(map.tiles[0][0], { x: 0, y: 0 });
-  t.deepEqual(map.tiles[0][1], { x: 0, y: 1 });
-  t.deepEqual(map.tiles[1][0], { x: 1, y: 0 });
-  t.deepEqual(map.tiles[1][1], { x: 1, y: 1 });
-});
-
 test('You should be able to look up the X and Y coordinate of a tile', (t) => {
   const map = createMap(2, 2);
   const tile = map.tiles[0][0];
