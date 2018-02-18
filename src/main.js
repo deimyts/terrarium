@@ -6,9 +6,13 @@ class Map {
   }
 
   createTiles() {
-    const xAxis = Map.createIndependentAxis(this.width);
-    const yAxis = Map.createDependentAxis(this.height, xAxis);
-    return Map.fillGridWithValues(yAxis);
+    const grid = Map.createGrid(this.width, this.height);
+    return Map.fillGridWithValues(grid);
+  }
+
+  static createGrid(width, height) {
+    const xAxis = this.createIndependentAxis(width);
+    return this.createDependentAxis(height, xAxis);
   }
 
   static createIndependentAxis(length) {
