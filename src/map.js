@@ -1,6 +1,6 @@
 const seedrandom = require('seedrandom');
 
-const throwError = (msg) => { throw Error( msg ) }
+const throwError = (msg) => { throw Error(msg); };
 
 class Map {
   constructor(seed = throwError('Map must have a seed'), width = 100, height = 100) {
