@@ -8,7 +8,7 @@ class Map {
   createTiles() {
     const xAxis = Map.createIndependentAxis(this.width);
     const yAxis = Map.createDependentAxis(this.height, xAxis);
-    return Map.fillGridWithValues(xAxis, yAxis);
+    return Map.fillGridWithValues(yAxis);
   }
 
   static createIndependentAxis(length) {
@@ -19,12 +19,23 @@ class Map {
     return xAxis.map(() => new Array(length).fill(null));
   }
 
-  static fillGridWithValues(xAxis, yAxis) {
-    return yAxis.map(xCoord => xCoord.map((y, i) => {
-      const xVal = yAxis.indexOf(xCoord);
+  static fillGridWithValues(grid) {
+    // for each array of Y-values on the X-axis
+    // replace each Y-value in the array with custom text
+    return grid.map( (arrayOfYValues) => {
+      return arrayOfYValues.map((tile, yVal) => {
+        const xVal = grid.indexOf(arrayOfYValues);
+        return `(${xVal}, ${yVal})`;
+      })
+    })
+  }
+
+  static mapCoords(coords) {
+    return coords.map((y, i) => {
+      const xVal = yAxis.indexOf(coords);
       const yVal = i;
       return `(${xVal}, ${yVal})`;
-    }));
+    });
   }
 }
 
