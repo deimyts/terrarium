@@ -12,11 +12,11 @@ class Map {
   }
 
   static createIndependentAxis(length) {
-    return new Array(length).fill([]);
+    return this.createFilledArray([], length);
   }
 
   static createDependentAxis(length, xAxis) {
-    return xAxis.map(() => new Array(length).fill(null));
+    return xAxis.map(() => this.createFilledArray(null, length));
   }
 
   static fillGridWithValues(grid) {
@@ -24,14 +24,16 @@ class Map {
   }
 
   static fillColumnWithValues(grid, column) {
-    return column.map((gridSquare, yVal) => {
-      const xVal = grid.indexOf(column);
-      return this.formatCoordinates(xVal, yVal);
-    });
+    const xVal = grid.indexOf(column);
+    return column.map((tile, yVal) => this.formatCoordinates(xVal, yVal));
   }
 
   static formatCoordinates(x, y) {
     return `(${x}, ${y})`;
+  }
+
+  static createFilledArray(fillValue, length) {
+    return new Array(length).fill(fillValue);
   }
 }
 
