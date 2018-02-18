@@ -78,3 +78,11 @@ test('The tiles array should be two-dimensional', (t) => {
   const map2 = createMap(2, 2);
   t.deepEqual(map2.tiles, [['(0, 0)', '(0, 1)'], ['(1, 0)', '(1, 1)']]);
 });
+
+test('You should be able to look up tiles by their coordinates', (t) => {
+  const map = createMap(2, 2);
+  t.is(map.tiles[0][0], '(0, 0)');
+  t.is(map.tiles[0][1], '(0, 1)');
+  t.is(map.tiles[1][0], '(1, 0)');
+  t.is(map.tiles[1][1], '(1, 1)');
+});
