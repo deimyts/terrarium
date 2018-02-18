@@ -112,8 +112,15 @@ test('Each tile should have an associated value', (t) => {
   t.truthy(tile4.value);
 });
 
-test('The tile values should be randomly assigned', (t) => {
-  sinon.spy(Math, 'random');
-  Map.assignRandomValuetoTile();
-  t.true(Math.random.called);
+test('Using the same seed should result in the same value', (t) => {
+  const seed1 = 1;
+  const value1 = Map.assignRandomValuetoTile(seed1);
+  const value2 = Map.assignRandomValuetoTile(seed1);
+  t.is(value1, value2);
+
+  const seed2 = "hello";
+  const value3 = Map.assignRandomValuetoTile(seed2);
+  const value4 = Map.assignRandomValuetoTile(seed2);
+
+  t.is(value3, value4);
 });

@@ -1,3 +1,5 @@
+const seedrandom = require('seedrandom');
+
 class Map {
   constructor(width = 100, height = 100) {
     this.width = width;
@@ -33,15 +35,16 @@ class Map {
   }
 
   static formatCoordinates(x, y) {
-    return { x, y, value: 1 };
+    return { x, y, value: this.assignRandomValuetoTile() };
   }
 
   static createFilledArray(fillValue, length) {
     return new Array(length).fill(fillValue);
   }
 
-  static assignRandomValuetoTile(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) + min);
+  static assignRandomValuetoTile(seed) {
+    const val = seedrandom(seed);
+    return val();
   }
 }
 
