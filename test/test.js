@@ -32,7 +32,7 @@ test('The map should have a width', (t) => {
 
 test('The map should have a height', (t) => {
   const map = createMap();
-  t.not(map.width, undefined);
+  t.not(map.height, undefined);
 });
 
 test('You should be able to set the map width and height when you create it', (t) => {
