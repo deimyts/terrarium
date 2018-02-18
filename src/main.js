@@ -16,59 +16,19 @@ class Map {
       }
     }
 
-    const grid = new Array(this.width).fill([]);
-
-    const grid3 = grid.map((xCoord, xVal) => {
-      xCoord.push(xVal);
-
-      return xCoord;
-    });
-
-
     const a = new Array(this.width).fill([]);
 
-    if (this.width < 10) {
-      console.log('A: ', a);
-    }
+    const b = a.map(() => new Array(this.height).fill(0));
 
-    const b = a.map((x, i) => {
-      if (this.width < 10) {
-
-      }
-
-      return new Array(this.height).fill(0);
-    });
-
-
-    if (this.width < 10) {
-      console.log('B: ', b);
-    }
-
-    const c = b.map(x => x.map((y, i, arr) => {
-      const val = x.toString();
-
+    const c = b.map(x => x.map((y, i) => {
       const xVal = b.indexOf(x);
       const yVal = i;
-      if (this.width < 10) {
-        console.log('x: ', xVal);
-        console.log('y: ', yVal);
-      }
-      const formattedVal = val.replace(',', ', ');
-
       const finalVal = `(${xVal}, ${yVal})`;
       return finalVal;
     }));
 
-    if (this.width < 10) {
-      console.log('C: ', c);
-    }
     return c;
   }
-}
-
-function createGrid(width, height) {
-  const grid = new Array(this.width).fill([]);
-  return grid;
 }
 
 class Game {
