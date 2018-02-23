@@ -16,16 +16,11 @@ class Map {
   }
 
   addRandomValues() {
-    return Map.iterateOverGrid(this.grid, Map.assignValueToTile);
+    return Map.iterateOverGrid(this.grid, Map.assignRandomValueToTile);
   }
 
   static iterateOverGrid(grid, processTiles) {
     return grid.map(column => column.map(processTiles));
-  }
-
-  static assignValueToTile(tile) {
-    const value = generateRandom(`${tile.x} + ${tile.y}`);
-    return Object.assign({}, { value }, tile);
   }
 
   static createGrid(width, height) {
@@ -45,13 +40,14 @@ class Map {
     return grid.map(column => this.addCoordinates(grid, column));
   }
 
-  static addCoordinates(grid, column) {
-    const xVal = grid.indexOf(column);
-    return column.map((tile, yVal) => this.formatCoordinates(xVal, yVal));
+  static assignRandomValueToTile(tile) {
+    const value = generateRandom(`${tile.x} + ${tile.y}`);
+    return Object.assign({}, { value }, tile);
   }
 
-  static formatCoordinates(x, y) {
-    return { x, y };
+  static addCoordinates(grid, column) {
+    const x = grid.indexOf(column);
+    return column.map((tile, y) => ({ x, y }));
   }
 
   static createFilledArray(fillValue, length) {
