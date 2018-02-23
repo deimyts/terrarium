@@ -1,3 +1,5 @@
+// import rng from 'rng-js';
+
 const seedrandom = require('seedrandom');
 
 // const throwError = (msg) => { throw Error(msg); };
